@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Écran | Jeu buzzer</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="screen-body">
+    <main class="screen-shell">
+      <header class="screen-header">
+        <div>
+          <p class="screen-kicker" id="screenRound">Manche 1</p>
+          <h1>Quiz buzzer</h1>
+        </div>
+        <button id="armAudioBtn" class="button primary">Démarrer l'écran</button>
+      </header>
+
+      <section class="question-display">
+        <p id="screenCategory" class="screen-kicker">En attente</p>
+        <div id="screenQuestion" class="screen-question">Choisis une question depuis l'admin.</div>
+        <div id="screenAnswer" class="screen-answer hidden"></div>
+      </section>
+
+      <section class="screen-bottom">
+        <div class="screen-buzz">
+          <p class="screen-kicker">Premier buzz</p>
+          <div id="screenBuzzName">Personne pour l'instant</div>
+        </div>
+        <div class="screen-scores" id="screenScores"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+    <script type="module" src="/screen.js"></script>
+  </body>
+</html>
