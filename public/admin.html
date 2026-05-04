@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin | Jeu buzzer</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="mark">BZ</div>
+          <div>
+            <h1>Tableau admin</h1>
+            <p class="subtitle">Lance les buzzers, valide les réponses et ajuste les points.</p>
+          </div>
+        </div>
+        <div class="pill">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="roundLabel">Manche 1</span>
+          <span data-connection>En direct</span>
+        </div>
+      </header>
+
+      <section class="layout">
+        <div class="panel">
+          <div class="panel-title">
+            <h2>Contrôle de la manche</h2>
+            <span id="lockLabel" class="meta">Buzzer fermé</span>
+          </div>
+          <div class="controls">
+            <button class="button primary" id="startBtn">Ouvrir le buzzer</button>
+            <button class="button danger" id="closeBtn">Fermer</button>
+            <button class="button blue" id="nextBtn">Nouvelle manche</button>
+            <button class="button light" id="resetBtn">Remettre à zéro</button>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="panel-title">
+            <h2>Joueurs</h2>
+            <span class="meta" id="playerCount">0 inscrit</span>
+          </div>
+          <div id="scoreList" class="score-list"></div>
+        </aside>
+
+        <div class="panel">
+          <div class="panel-title">
+            <h2>Ordre des buzzers</h2>
+            <span class="meta" id="buzzCount">0 buzz</span>
+          </div>
+          <div id="queue" class="queue"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+    <script type="module" src="/admin.js"></script>
+  </body>
+</html>
