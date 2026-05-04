@@ -23,7 +23,7 @@
         </div>
       </header>
 
-      <section class="layout">
+      <section class="layout admin-layout">
         <div class="panel">
           <div class="panel-title">
             <h2>Contrôle de la manche</h2>
@@ -35,6 +35,34 @@
             <button class="button blue" id="nextBtn">Nouvelle manche</button>
             <button class="button light" id="resetBtn">Remettre à zéro</button>
           </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">
+            <h2>Écran de diffusion</h2>
+            <span class="meta" id="screenStatus">Question masquée</span>
+          </div>
+          <div class="controls">
+            <button class="button blue" id="revealBtn">Afficher réponse</button>
+            <button class="button light" id="hideBtn">Masquer réponse</button>
+            <button class="button primary" id="musicBtn">Musique</button>
+            <a class="button light link-button" href="/screen" target="_blank" rel="noreferrer">Ouvrir écran</a>
+          </div>
+        </div>
+
+        <div class="panel question-panel">
+          <div class="panel-title">
+            <h2>Questions</h2>
+            <span class="meta" id="questionCount">0 question</span>
+          </div>
+          <form id="questionForm" class="question-form">
+            <input id="questionText" maxlength="420" placeholder="Question à afficher" required />
+            <input id="questionAnswer" maxlength="280" placeholder="Réponse" />
+            <input id="questionCategory" maxlength="40" placeholder="Catégorie" />
+            <input id="questionPoints" type="number" min="1" max="20" value="1" aria-label="Points" />
+            <button class="button blue" type="submit">Ajouter</button>
+          </form>
+          <div id="questionList" class="question-list"></div>
         </div>
 
         <aside class="panel">

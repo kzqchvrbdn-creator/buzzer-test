@@ -10,6 +10,8 @@ const roundLabel = document.querySelector("#roundLabel");
 const playerNameLabel = document.querySelector("#playerNameLabel");
 const joinForm = document.querySelector("#joinForm");
 const nameInput = document.querySelector("#nameInput");
+const playerQuestionMeta = document.querySelector("#playerQuestionMeta");
+const playerQuestionText = document.querySelector("#playerQuestionText");
 const buzzer = document.querySelector("#buzzer");
 const message = document.querySelector("#message");
 const miniScoreboard = document.querySelector("#miniScoreboard");
@@ -30,6 +32,7 @@ function updatePlayerState(state) {
   const myBuzz = state.buzzes.find((buzz) => buzz.playerId === playerId);
   const lockedBuzz = state.buzzes.find((buzz) => buzz.playerId === state.lockedPlayerId);
   const me = state.players.find((player) => player.id === playerId);
+  const question = state.activeQuestion;
 
   statusDot.classList.toggle("open", state.acceptingBuzzes);
   roundLabel.textContent = `Manche ${state.round}`;
@@ -38,6 +41,10 @@ function updatePlayerState(state) {
     : "Entre ton prénom pour rejoindre la partie.";
 
   buzzer.disabled = !hasJoined() || !state.acceptingBuzzes || buzzing;
+  playerQuestionMeta.textContent = question
+    ? `${question.category || "Question"} · ${question.points || 1} point${Number(question.points || 1) > 1 ? "s" : ""}`
+    : "Question";
+  playerQuestionText.textContent = question?.text || "En attente d'une question.";
 
   if (!hasJoined()) {
     message.textContent = "Entre ton prénom pour rejoindre la partie.";
